@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Все цитаты</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .quote { background: #f9f9f9; border-left: 10px solid #ccc; margin: 20px 0; padding: 10px 20px; }
+        .author { font-style: italic; text-align: right; }
+        .date { color: #666; font-size: 0.8em; }
+        .nav { margin: 20px 0; }
+    </style>
 </head>
 <body>
-$END$
+    <h1>Все цитаты</h1>
+
+    {% for quote in quotes %}
+    <div class="quote">
+        <p>{{ quote.text }}</p>
+        <p class="author">— {{ quote.author }}</p>
+        <p class="date">Добавлена: {{ quote.date_added }}</p>
+    </div>
+    {% else %}
+    <p>Пока нет цитат. <a href="/add">Добавьте первую!</a></p>
+    {% endfor %}
+
+    <div class="nav">
+        <a href="/">На главную</a> |
+        <a href="/add">Добавить цитату</a>
+    </div>
 </body>
 </html>

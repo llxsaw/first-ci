@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Добавить цитату</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        form { margin: 20px 0; }
+        textarea, input[type="text"] { width: 100%; padding: 8px; margin: 5px 0; }
+        input[type="submit"] { background: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        .success { color: green; }
+        .nav { margin: 20px 0; }
+    </style>
 </head>
 <body>
-$END$
+    <h1>Добавить новую цитату</h1>
+
+    {% if success %}
+    <p class="success">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <div>
+            <label for="text">Текст цитаты:</label><br>
+            <textarea id="text" name="text" rows="4" required></textarea>
+        </div>
+
+        <div>
+            <label for="author">Автор:</label><br>
+            <input type="text" id="author" name="author" required>
+        </div>
+
+        <div>
+            <input type="submit" value="Добавить цитату">
+        </div>
+    </form>
+
+    <div class="nav">
+        <a href="/">На главную</a> |
+        <a href="/all">Все цитаты</a>
+    </div>
 </body>
 </html>
